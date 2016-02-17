@@ -27,11 +27,11 @@ class Car(object):
 class Light(object):
   def __init__(self,Direction,GreenTime)
    self.Direction = Direction  #there are 2 light objects, one for the horizontal lanes and one for the vertical lanes
-   self.GreenTime=GreenTime
-   self.YellowTime=6
+   self.GreenTime = GreenTime
+   self.YellowTime = 6 
    self.RedTime=GreenTime+6
-   
-	def DetermineState() #to be defined/implemented. Determines current light based on starting cycle when cycle is advanced.
+  
+  def DetermineState(): #to be defined/implemented. Determines current light based on starting cycle when cycle is advanced.
 
 class Lane(object):
 
@@ -40,8 +40,8 @@ class Lane(object):
         self.length=24 #length of lane before light, plus intersection
         self.spaces=[] #list storing Car objects
         
-    def SpawnNewCar() #to be defined, after a lane is finished with movement the lane checks whether it can spawn a car
+    def SpawnNewCar(): #to be defined, after a lane is finished with movement the lane checks whether it can spawn a car
     			#and does so if able
-    def MoveCar()  #to be defined. Change the values of a Car object in spaces[] after a car determines movement
+    def MoveCar():  #to be defined. Change the values of a Car object in spaces[] after a car determines movement
 
             
