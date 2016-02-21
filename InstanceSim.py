@@ -58,7 +58,7 @@ class Lane(object):
 
 		return True
 
-	def MoveCar(self,self.carqueue,LightStatus):
+	def MoveCar(self,LightStatus):
 		#cars follow one set of rules with a green light
 		#starting at the head of the queue and moving towards the tail, for each
 		if LightStatus == "Green":
