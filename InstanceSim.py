@@ -33,8 +33,9 @@ class Lane(object):
         def PositionIsClear(self,location):
             for x in self.carqueue:
                     for y in x:
-                            if y==location:
-                                    return False
+			if y==location:
+				print("XXX")
+				return False
             return True
             #protip: to shift left all lines by one tab, highlight those lines and hit Shift+TabError
 
