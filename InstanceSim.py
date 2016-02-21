@@ -101,21 +101,35 @@ class Light(object):
 		self.YellowTime = 6 
 		self.RedTime=GreenTime+6
 		self.StartsGreen=StartsGreen
+		self.Top=Lane()
+		self.Bottom=Lane()
 	def DetermineState(x): #to be defined/implemented. Determines current light based on starting cycle when cycle is advanced.
-		if(StartsGreen):
+		if(self.StartsGreen):
 			if((x)%((self.GreenTime+6)*2) < NS.GreenTime):
 				print(NS.Direction,"is green")
+				self.Top.Iterate(x,self.StartsGreen)
+				self.Bottom.Iterate(x,self.StartsGreen)
 			elif((x)%((self.GreenTime+6)*2) < NS.GreenTime+NS.YellowTime):
 				print(NS.Direction,"is yellow")
+				self.Top.Iterate(x,self.StartsGreen)
+				self.Bottom.Iterate(x,self.StartsGreen)
 			else:
 				print(NS.Direction,"is red")
+				self.Top.Iterate(x,self.StartsGreen)
+				self.Bottom.Iterate(x,self.StartsGreen)
 		else:
 			if((x)%((self.GreenTime+6)*2) < EW.RedTime):
 				print(EW.Direction,"is red")
+				self.Top.Iterate(x,self.StartsGreen)
+				self.Bottom.Iterate(x,self.StartsGreen)
 			elif((x)%((self.GreenTime+6)*2) < EW.RedTime+EW.YellowTime):
 				print(EW.Direction,"is green")
+				self.Top.Iterate(x,self.StartsGreen)
+				self.Bottom.Iterate(x,self.StartsGreen)
 			else:
 				print(EW.Direction,"is yellow")
+				self.Top.Iterate(x,self.StartsGreen)
+				self.Bottom.Iterate(x,self.StartsGreen)
 class Instance(object):
 
 	def __init__(self, GreenTime, TotalCycles):#start a simulation by inputting the green light time and the total duration
@@ -143,4 +157,6 @@ class Instance(object):
 		
    #def AdvanceCycle():#to be defined/implemented, advances cycle and triggers the changes to the current state of the lights and lanes.
    #def GetCurrentCycle(): #to be defined/implemented, getter for supplying current cycle to other functions
-
+def main():
+	Highway=Instance(6,10)
+main()
