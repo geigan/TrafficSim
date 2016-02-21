@@ -27,8 +27,8 @@ class Lane(object):
                             pass
 		self.spawn()#at the end of the movement turn, roll the dice and see if a car spawns
         def spawn(self):
-        	if self.PositionIsClear(2) and self.PositionIsClear(1):
-        	self.carqueue.append([1,2])
+		if self.PositionIsClear(2) and self.PositionIsClear(1):
+			self.carqueue.append([1,2])
 
         def PositionIsClear(self,location):
             for x in self.carqueue:
