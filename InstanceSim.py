@@ -104,25 +104,25 @@ class Light(object):
 		self.Bottom=Lane()
 	def DetermineState(self,x): #to be defined/implemented. Determines current light based on starting cycle when cycle is advanced.
 		if(self.StartsGreen):
-			if((x)%((self.GreenTime+6)*2) < NS.GreenTime):
-				print(NS.Direction,"is green")
+			if((x)%((self.GreenTime+6)*2) < self.GreenTime):
+				print(self.Direction,"is green")
 				self.Top.Iterate(x,self.StartsGreen)
 				self.Bottom.Iterate(x,self.StartsGreen)
-			elif((x)%((self.GreenTime+6)*2) < NS.GreenTime+NS.YellowTime):
-				print(NS.Direction,"is yellow")
+			elif((x)%((self.GreenTime+6)*2) < self.GreenTime+self.YellowTime):
+				print(self.Direction,"is yellow")
 				self.Top.Iterate(x,self.StartsGreen)
 				self.Bottom.Iterate(x,self.StartsGreen)
 			else:
-				print(NS.Direction,"is red")
+				print(self.Direction,"is red")
 				self.Top.Iterate(x,self.StartsGreen)
 				self.Bottom.Iterate(x,self.StartsGreen)
 		else:
-			if((x)%((self.GreenTime+6)*2) < EW.RedTime):
-				print(EW.Direction,"is red")
+			if((x)%((self.GreenTime+6)*2) < self.RedTime):
+				print(self.Direction,"is red")
 				self.Top.Iterate(x,self.StartsGreen)
 				self.Bottom.Iterate(x,self.StartsGreen)
-			elif((x)%((self.GreenTime+6)*2) < EW.RedTime+EW.YellowTime):
-				print(EW.Direction,"is green")
+			elif((x)%((self.GreenTime+6)*2) < self.RedTime+self.YellowTime):
+				print(self.Direction,"is green")
 				self.Top.Iterate(x,self.StartsGreen)
 				self.Bottom.Iterate(x,self.StartsGreen)
 			else:
