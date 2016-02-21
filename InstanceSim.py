@@ -75,18 +75,18 @@ class Lane(object):
 				print("Car:",x)
 			spawn(self.carqueue)
 
-	def Iterate(self,x,starts_green):
+	def Iterate(self,x,starts_green,green_time):
 		if(starts_green):
-			if((x)%((self.GreenTime+6)*2) < self.GreenTime):
+			if((x)%((green_time+6)*2) < green_time):
 				MoveCar("green")
-			elif((x)%((self.GreenTime+6)*2) < self.GreenTime+self.YellowTime):
+			elif((x)%((green_time+6)*2) < green_time+6):
 				MoveCar("yellow")
 			else:
 				MoveCar("red")
 		else:
-			if((x)%((self.GreenTime+6)*2) < self.RedTime):
+			if((x)%((green_time+6)*2) < green_time+6):
 				MoveCar("red")
-			elif((x)%((self.GreenTime+6)*2) < self.RedTime+ self.YellowTime):
+			elif((x)%((self.GreenTime+6)*2) < green_time+12):
 				MoveCar("green")
 			else:
 				MoveCar("yellow")
@@ -106,29 +106,29 @@ class Light(object):
 		if(self.StartsGreen):
 			if((x)%((self.GreenTime+6)*2) < self.GreenTime):
 				print(self.Direction,"is green")
-				self.Top.Iterate(x,self.StartsGreen)
-				self.Bottom.Iterate(x,self.StartsGreen)
+				self.Top.Iterate(x,self.StartsGreen,self.GreenTime)
+				self.Bottom.Iterate(x,self.StartsGreen,self.GreenTime)
 			elif((x)%((self.GreenTime+6)*2) < self.GreenTime+self.YellowTime):
 				print(self.Direction,"is yellow")
-				self.Top.Iterate(x,self.StartsGreen)
-				self.Bottom.Iterate(x,self.StartsGreen)
+				self.Top.Iterate(x,self.StartsGreen,self.GreenTime)
+				self.Bottom.Iterate(x,self.StartsGreen,self.GreenTime)
 			else:
 				print(self.Direction,"is red")
-				self.Top.Iterate(x,self.StartsGreen)
-				self.Bottom.Iterate(x,self.StartsGreen)
+				self.Top.Iterate(x,self.StartsGreen,self.GreenTime)
+				self.Bottom.Iterate(x,self.StartsGreen,self.GreenTime)
 		else:
 			if((x)%((self.GreenTime+6)*2) < self.RedTime):
 				print(self.Direction,"is red")
-				self.Top.Iterate(x,self.StartsGreen)
-				self.Bottom.Iterate(x,self.StartsGreen)
+				self.Top.Iterate(x,self.StartsGreen,self.GreenTime)
+				self.Bottom.Iterate(x,self.StartsGreen,self.GreenTime)
 			elif((x)%((self.GreenTime+6)*2) < self.RedTime+self.YellowTime):
 				print(self.Direction,"is green")
-				self.Top.Iterate(x,self.StartsGreen)
-				self.Bottom.Iterate(x,self.StartsGreen)
+				self.Top.Iterate(x,self.StartsGreen,self.GreenTime)
+				self.Bottom.Iterate(x,self.StartsGreen,self.GreenTime)
 			else:
 				print(EW.Direction,"is yellow")
-				self.Top.Iterate(x,self.StartsGreen)
-				self.Bottom.Iterate(x,self.StartsGreen)
+				self.Top.Iterate(x,self.StartsGreen,self.GreenTime)
+				self.Bottom.Iterate(x,self.StartsGreen,self.GreenTime)
 class Instance(object):
 
 	def __init__(self, GreenTime, TotalCycles):#start a simulation by inputting the green light time and the total duration
