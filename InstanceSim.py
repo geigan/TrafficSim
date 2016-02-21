@@ -65,11 +65,13 @@ class Lane(object):
 			for x in reversed(self.carqueue):  #iterate through the queue in descending order,
 										#starting with the frontmost car and ending with the last one
 				if self.carqueue[x][1] > 20:
-					self.carqueue[x][1]+=1,self.carqueue[x][0]+=1
+					self.carqueue[x][1]+=1
+					self.carqueue[x][0]+=1
 					if self.carqueue[x][1] > 25:
 						self.carqueue.pop() #once a car's head is clear of the intersection, pop it
 				elif PositionIsClear((self.carqueue[x][1])+1):
-					self.carqueue[x][1]+=1,self.carqueue[x][0]+=1
+					self.carqueue[x][1]+=1
+					self.carqueue[x][0]+=1
 				print("Car:",x)
 			spawn(self.carqueue)
 
