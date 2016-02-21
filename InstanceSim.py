@@ -29,7 +29,7 @@ class Lane(object):
         def spawn(self):
 		if self.PositionIsClear(2) and self.PositionIsClear(1):
 			self.carqueue.append([1,2])
-
+			print("XXX")
         def PositionIsClear(self,location):
             for x in self.carqueue:
                     for y in x:
