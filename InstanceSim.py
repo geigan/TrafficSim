@@ -45,9 +45,9 @@ class Lane(object):
 
 
 
-    def __init__(self):
-        print("Lane created.")
-        self.carqueue=[]
+	def __init__(self):
+		print("Lane created.")
+		self.carqueue=[]
 
     def spawn(self):
         if PositionIsClear(self.carqueue,2) and PositionIsClear(self.carqueue,1):
