@@ -75,7 +75,7 @@ class Lane(object):
 				print("Car:",x)
 			spawn(self.carqueue)
 
-	def Iterate(x,starts_green):
+	def Iterate(self,x,starts_green):
 		if(starts_green):
 			if((x)%((self.GreenTime+6)*2) < NS.GreenTime):
 				MoveCar("green")
