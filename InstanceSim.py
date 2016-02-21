@@ -74,22 +74,24 @@ class Lane(object):
 					self.carqueue[x][0]+=1
 				print("Car:",x)
 			spawn(self.carqueue)
-
+	'''Use the same formula Light uses for determining light status to determine what light status to use
+	when calling MoveCar.  MoveCar determines movement by light status, Iterate determines movement by green time and where we are
+	in the cycle, given whether or not a light starts off green.'''
 	def Iterate(self,x,starts_green,green_time):
 		if(starts_green):
 			if((x)%((green_time+6)*2) < green_time):
-				MoveCar("green")
+				self.MoveCar("green")
 			elif((x)%((green_time+6)*2) < green_time+6):
-				MoveCar("yellow")
+				self.MoveCar("yellow")
 			else:
-				MoveCar("red")
+				self.MoveCar("red")
 		else:
 			if((x)%((green_time+6)*2) < green_time+6):
-				MoveCar("red")
+				self.MoveCar("red")
 			elif((x)%((self.GreenTime+6)*2) < green_time+12):
-				MoveCar("green")
+				self.MoveCar("green")
 			else:
-				MoveCar("yellow")
+				self.MoveCar("yellow")
 
 
 
