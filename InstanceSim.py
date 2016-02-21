@@ -77,16 +77,16 @@ class Lane(object):
 
 	def Iterate(self,x,starts_green):
 		if(starts_green):
-			if((x)%((self.GreenTime+6)*2) < NS.GreenTime):
+			if((x)%((self.GreenTime+6)*2) < self.GreenTime):
 				MoveCar("green")
-			elif((x)%((self.GreenTime+6)*2) < NS.GreenTime+NS.YellowTime):
+			elif((x)%((self.GreenTime+6)*2) < self.GreenTime+self.YellowTime):
 				MoveCar("yellow")
 			else:
 				MoveCar("red")
 		else:
-			if((x)%((self.GreenTime+6)*2) < EW.RedTime):
+			if((x)%((self.GreenTime+6)*2) < self.RedTime):
 				MoveCar("red")
-			elif((x)%((self.GreenTime+6)*2) < EW.RedTime+EW.YellowTime):
+			elif((x)%((self.GreenTime+6)*2) < self.RedTime+ self.YellowTime):
 				MoveCar("green")
 			else:
 				MoveCar("yellow")
