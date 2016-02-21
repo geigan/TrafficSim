@@ -3,7 +3,7 @@ class Lane(object):
 		print("Lane created.")
 		self.carqueue=[]
 
-	def MoveCar(self,LightStatus):
+	'''def MoveCar(self,LightStatus):
 	#cars follow one set of rules with a green light
 	#starting at the head of the queue and moving towards the tail, for each
             
@@ -16,25 +16,16 @@ class Lane(object):
                     elif ( self.PositionIsClear((self.carqueue[x][1]) ) ) and (self.carqueue[x][1] < 20):
                             self.carqueue[x][1]+=1
                             self.carqueue[x][0]+=1
-                            '''x
-                            xxx'''
                     elif self.PositionIsClear((self.carqueue[x][1]) ) and LightStatus=="green":
                             self.carqueue[x][1]+=1
                             self.carqueue[x][0]+=1
                     else:
                             pass
-		self.spawn()#at the end of the movement turn, roll the dice and see if a car spawns
+		self.spawn()#at the end of the movement turn, roll the dice and see if a car spawns'''
         def spawn(self):
 		if self.PositionIsClear(2) and self.PositionIsClear(1):
 			self.carqueue.append([1,2])
 			#print("PositionIsClear returned True for both squares")
-        def PositionIsClear(self,location):
-            for x in self.carqueue:
-                    for y in x:
-			if y==location:
-				print("XXX")
-				return False
-            return True
             #protip: to shift left all lines by one tab, highlight those lines and hit Shift+TabError
 
 
