@@ -102,7 +102,7 @@ class Light(object):
 		self.StartsGreen=StartsGreen
 		self.Top=Lane()
 		self.Bottom=Lane()
-	def DetermineState(x): #to be defined/implemented. Determines current light based on starting cycle when cycle is advanced.
+	def DetermineState(self,x): #to be defined/implemented. Determines current light based on starting cycle when cycle is advanced.
 		if(self.StartsGreen):
 			if((x)%((self.GreenTime+6)*2) < NS.GreenTime):
 				print(NS.Direction,"is green")
