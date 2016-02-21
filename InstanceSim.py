@@ -29,7 +29,7 @@ class Lane(object):
         def spawn(self):
 		if self.PositionIsClear(2) and self.PositionIsClear(1):
 			self.carqueue.append([1,2])
-			print("XXX")
+			#print("PositionIsClear returned True for both squares")
         def PositionIsClear(self,location):
             for x in self.carqueue:
                     for y in x:
@@ -54,6 +54,7 @@ class Lane(object):
 		for x in self.carqueue:
 			for y in x:
 				if y==location:
+					print("Position is not clear.")
 					return False
 
 		return True
