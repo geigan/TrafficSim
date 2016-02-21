@@ -48,7 +48,7 @@ class Lane(object):
 		self.carqueue=[]
 	def spawn(self):
 		if PositionIsClear(2) and PositionIsClear(1):
-			self.carqueue.append[[1,2]]
+			self.carqueue.append([1,2])
 
 	def PositionIsClear(self,location):
 		for x in self.carqueue:
@@ -74,7 +74,7 @@ class Lane(object):
 					self.carqueue[x][0]+=1
 				print("Car:",x)
 			spawn(self.carqueue)
-			print("Cars in lane:",self.carqueue)
+		print("Cars in lane:",self.carqueue)
 	'''Use the same formula Light uses for determining light status to determine what light status to use
 	when calling MoveCar.  MoveCar determines movement by light status, Iterate determines movement by green time and where we are
 	in the cycle, given whether or not a light starts off green.'''
@@ -155,10 +155,10 @@ class Instance(object):
 			print("Cycle:",x+1)
 			NS.DetermineState(x)
 			EW.DetermineState(x)
-		print("Cars in north lane after," self.TotalCycles,"cycles:",len(NS.Top.carqueue))
-		print("Cars in south lane after," self.TotalCycles,"cycles:",len(NS.Bottom.carqueue))
-		print("Cars in east lane after," self.TotalCycles,"cycles:",len(EW.Top.carqueue))
-		print("Cars in west lane after," self.TotalCycles,"cycles:",len(EW.Bottom.carqueue))
+		print("Cars in north lane after", self.TotalCycles,"cycles:",len(NS.Top.carqueue))
+		print("Cars in south lane after", self.TotalCycles,"cycles:",len(NS.Bottom.carqueue))
+		print("Cars in east lane after", self.TotalCycles,"cycles:",len(EW.Top.carqueue))
+		print("Cars in west lane after", self.TotalCycles,"cycles:",len(EW.Bottom.carqueue))
    #def AdvanceCycle():#to be defined/implemented, advances cycle and triggers the changes to the current state of the lights and lanes.
    #def GetCurrentCycle(): #to be defined/implemented, getter for supplying current cycle to other functions
 def main():
