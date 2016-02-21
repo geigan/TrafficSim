@@ -47,10 +47,10 @@ class Lane(object):
 		print("Lane created.")
 		self.carqueue=[]
 	def spawn(self):
-		if PositionIsClear(self.carqueue,2) and PositionIsClear(self.carqueue,1):
+		if PositionIsClear(2) and PositionIsClear(1):
 			self.carqueue.append[[1,2]]
 
-	def PositionIsClear(self,self.carqueue,location):
+	def PositionIsClear(self,location):
 		for x in self.carqueue:
 			for y in x:
 				if y==location:
@@ -68,7 +68,7 @@ class Lane(object):
 					self.carqueue[x][1]+=1,self.carqueue[x][0]+=1
 					if self.carqueue[x][1] > 25:
 						self.carqueue.pop() #once a car's head is clear of the intersection, pop it
-				elif PositionIsClear(self.carqueue,(self.carqueue[x][1])+1):
+				elif PositionIsClear((self.carqueue[x][1])+1):
 					self.carqueue[x][1]+=1,self.carqueue[x][0]+=1
 				print("Car:",x)
 			spawn(self.carqueue)
